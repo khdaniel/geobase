@@ -29,7 +29,7 @@ func (s *Server) setupRouter() {
 	s.r = mux.NewRouter()
 
 	s.r.HandleFunc("/hello", s.hello).Methods("GET", "POST")
-
+	s.r.HandleFunc("/", s.hello).Methods("GET", "POST")
 	s.r.HandleFunc("/user/{id}", s.getUser).Methods("GET")
 	s.r.HandleFunc("/user", s.setUser).Methods("POST")
 	s.r.HandleFunc("/user/{id}", s.setUser).Methods("PUT")
