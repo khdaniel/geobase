@@ -1,23 +1,36 @@
 package database
 
-// RuntimeStorage is a runtime storage manager
-type RuntimeStorage struct {
-	users map[string]string
+import (
+	"database/sql"
+	// "fmt"
+	"fmt"
+	models "geobase/internal/models"
+	_ "github.com/lib/pq" // required for PostgreSQL connection
+	"log"
+)
+
+// const parameter database
+const (
+	HOST = "host"
+	PORT = "5432"
+)
+
+// Database connection
+type Database struct {
+	db *sql.DB
 }
 
-// NewRuntimeStorage creates new runtme storage
-func NewRuntimeStorage() *RuntimeStorage {
-	return &RuntimeStorage{
-		users: make(map[string]string),
+//Initialize database connection
+func Initialize(config *models.Config) *Database {
+	address := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable", config.DBUser, config.DBPassword, config.DBHost, config.DBPort, config.DBName)
+	db, err := sql.Open("postgres", address)
+	if err != nil {
+		log.Fatal(err)
 	}
-}
+	if err = db.Ping(); err != nil {
+		log.Fatal(err)
+	}
 
-// GetUser returns a user
-func (s *RuntimeStorage) GetUser(id string) string {
-	return s.users[id]
-}
-
-// SetUser adds a useer to the storage
-func (s *RuntimeStorage) SetUser(id, name string) {
-	s.users[id] = name
+	pgStorage := Database{db: db}
+	return &pgStorage
 }

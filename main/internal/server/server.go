@@ -6,20 +6,24 @@ import (
 )
 
 type Storage interface {
-	GetUser(id string) string
-	SetUser(id, name string)
 }
 
 // Server is a main application server and hancler structure
 type Server struct {
-	r  *mux.Router
-	st Storage
+	r   *mux.Router
+	st  Storage
+	srv *http.Server
 }
 
 // New creates a new server
 func New(st Storage) *Server {
 	srv := &Server{
+		r:  mux.NewRouter(),
 		st: st,
+	}
+	srv.srv = &http.Server{
+		Handler: srv.r,
+		Addr:    "localhost",
 	}
 	srv.setupRouter()
 	return srv
@@ -30,9 +34,9 @@ func (s *Server) setupRouter() {
 
 	s.r.HandleFunc("/hello", s.hello).Methods("GET", "POST")
 	s.r.HandleFunc("/", s.hello).Methods("GET", "POST")
-	s.r.HandleFunc("/user/{id}", s.getUser).Methods("GET")
-	s.r.HandleFunc("/user", s.setUser).Methods("POST")
-	s.r.HandleFunc("/user/{id}", s.setUser).Methods("PUT")
+	// s.r.HandleFunc("/user/{id}", s.getUser).Methods("GET")
+	// s.r.HandleFunc("/user", s.setUser).Methods("POST")
+	// s.r.HandleFunc("/user/{id}", s.setUser).Methods("PUT")
 }
 
 // Run server
