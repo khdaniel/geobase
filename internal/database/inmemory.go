@@ -13,18 +13,18 @@ func New() InmemoryDB {
 }
 
 func (db InmemoryDB) Init() {
-	db["Стекло"] = "https://recyclemap.ru/index.php?id=37334"
-	db["Пластик"] = "https://recyclemap.ru/index.php?id=37335"
-	db["Метал"] = "https://recyclemap.ru/index.php?id=37336"
-	db["Одежда"] = "https://recyclemap.ru/index.php?id=38658"
-	db["Иное"] = "https://recyclemap.ru/index.php?id=37305"
-	db["Опасное"] = "https://recyclemap.ru/index.php?id=37326"
-	db["Батарейки"] = "https://recyclemap.ru/index.php?id=37287"
-	db["Лампочки"] = "https://recyclemap.ru/index.php?id=37334"
-	db["Техника"] = "https://recyclemap.ru/index.php?id=37335"
-	db["ТетраПак"] = "https://recyclemap.ru/index.php?id=37336"
-	db["Крышечки"] = "https://recyclemap.ru/index.php?id=37305"
-	db["Шины"] = "https://recyclemap.ru/index.php?id=38658"
+	db["Стекло"] = "https://www.google.com/maps/@55.7324321,37.6632525,20.99z"
+	db["Пластик"] = "https://www.google.com/maps/@55.7324321,37.6632525,20.99z"
+	db["Метал"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["Одежда"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["Иное"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["Опасное"] = "https://www.google.com/maps/@55.7324321,37.6632525,20.99z"
+	db["Батарейки"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["Лампочки"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["Техника"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["ТетраПак"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["Крышечки"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["Шины"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
 }
 
 func (db InmemoryDB) GetLocationForWasteType(ctx context.Context, recyclingPointRequest model.RecyclingPointRequest) (*model.RecyclingPointDBEntry, error) {
