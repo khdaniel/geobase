@@ -40,6 +40,7 @@ func NewServer(cfg *config.AppConfig, storage GeobaseRepository, logger *logger.
 
 func (s *Server) setupRouter() {
 	s.r.HandleFunc("/waste/type/{type_id}/location", s.getLocForWasteType).Methods("GET")
+	s.r.HandleFunc("/waste/type/{type_id}/point", s.getPointForWasteType).Methods("GET")
 }
 
 // Run starts the server

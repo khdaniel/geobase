@@ -7,5 +7,5 @@ import (
 
 // GeobaseRepository interface describes storage contract
 type GeobaseRepository interface {
-	GetLocationForWasteType(ctx context.Context, recyclingPointRequest model.RecyclingPointRequest) (*model.RecyclingPointDBEntry, error)
+	GetLocationForWasteType(ctx context.Context, recyclingPointRequest model.RecyclingPointRequest) (*model.RecyclingPoint, error)
 }

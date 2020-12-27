@@ -1,17 +1,22 @@
 package model
 
+type MapPoint struct {
+	Latitude  float32 `json:"latitude"`
+	Longitude float32 `json:"longitude"`
+}
+
+type RecyclingPoint struct {
+	Point       MapPoint
+	Details     string
+	UrlTemplate string
+}
+
 type RecyclingPointRequest struct {
 	WasteTypeID string
-	Longitude   float32
-	Latitude    float32
+	Point       MapPoint
 	Radius      int
 }
 
 type MapReference struct {
 	Url string `json:"url"`
-}
-
-type RecyclingPointDBEntry struct {
-	WasteType string
-	Url       string
 }
