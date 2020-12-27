@@ -8,6 +8,7 @@ import (
 	"geobase/internal/model"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -24,7 +25,7 @@ func (s *Server) getLocForWasteType(w http.ResponseWriter, r *http.Request) {
 	}()
 	vars := mux.Vars(r)
 
-	wasteTypeID := vars["type_id"]
+	wasteTypeID := strings.ToLower(vars["type_id"])
 
 	latitudeParam := r.URL.Query().Get("latitude")
 	latitude, err := strconv.ParseFloat(latitudeParam, 32)

@@ -13,18 +13,18 @@ func New() InmemoryDB {
 }
 
 func (db InmemoryDB) Init() {
-	db["Стекло"] = "https://www.google.com/maps/@55.7324321,37.6632525,20.99z"
-	db["Пластик"] = "https://www.google.com/maps/@55.7324321,37.6632525,20.99z"
-	db["Метал"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
-	db["Одежда"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
-	db["Иное"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
-	db["Опасное"] = "https://www.google.com/maps/@55.7324321,37.6632525,20.99z"
-	db["Батарейки"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
-	db["Лампочки"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
-	db["Техника"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
-	db["ТетраПак"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
-	db["Крышечки"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
-	db["Шины"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["стекло"] = "https://www.google.com/maps/@55.7324321,37.6632525,20.99z"
+	db["пластик"] = "https://www.google.com/maps/@55.7324321,37.6632525,20.99z"
+	db["метал"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["одежда"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["иное"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["опасное"] = "https://www.google.com/maps/@55.7324321,37.6632525,20.99z"
+	db["батарейки"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["лампочки"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["техника"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["тетрапак"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["крышечки"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
+	db["шины"] = "https://www.google.com/maps/@55.7188514,37.574609,17.97z"
 }
 
 func (db InmemoryDB) GetLocationForWasteType(ctx context.Context, recyclingPointRequest model.RecyclingPointRequest) (*model.RecyclingPointDBEntry, error) {
